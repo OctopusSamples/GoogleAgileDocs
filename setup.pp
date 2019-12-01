@@ -4,11 +4,13 @@ file { '/tmp/screenshots':
   ensure => 'directory'
 }
 -> file { '/tmp/screenshots/google':
-  ensure => 'directory'
+  ensure => 'directory',
+  mode   => '0666'
 }
 
-file { '/tmp/video':
-  ensure => 'directory'
+file { '/tmp/videos':
+  ensure => 'directory',
+  mode   => '0666'
 }
 
 apt::ppa { 'ppa:openjdk-r/ppa': }

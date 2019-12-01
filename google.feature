@@ -13,8 +13,8 @@ Feature: Search with Google
 
     When I populate the "Search" text box with "Octopus Deploy"
 
-    And I highlight outside the "Search" text box
-    And I highlight outside the "Google Search" button
+    And I highlight outside the "Search" text box with an offset of "2"
+    And I highlight outside the "Google Search" button with an offset of "2"
     And I save a screenshot to "#{ExternalScreenshotDir}/google/010-search.png"
 
     And I click the "Google Search" button

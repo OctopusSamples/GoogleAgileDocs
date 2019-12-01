@@ -18,7 +18,7 @@ jobs:
       DISABLE_VIDEO: false
       DISPLAY: ":99.0"
       MOUSE_VERTICAL_OFFSET: 74
-      WISTIA_MEDIA_ID: r2oehkvdvf
+      WISTIA_MEDIA_ID: eecl0uod01
     steps:
       - uses: actions/checkout@v1
       - name: Configure VM

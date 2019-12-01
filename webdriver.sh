@@ -9,7 +9,7 @@
   "-DdisableScreenshots=$DISABLE_SCREENSHOTS" \
   "-DmouseMoveVerticalOffset=$MOUSE_VERTICAL_OFFSET" \
   "-DdisableVideoRecording=$DISABLE_VIDEO" \
-  "-DCucumberAlias-ExternalVidoeDir=/tmp/video" \
+  "-DCucumberAlias-ExternalVidoeDir=/tmp/videos" \
   "-DCucumberAlias-ExternalScreenshotDir=/tmp/screenshots" \
   -jar /opt/webdrivertraining.1.0-SNAPSHOT.jar \
   --plugin progress \
