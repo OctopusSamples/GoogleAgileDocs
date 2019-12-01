@@ -1,7 +1,7 @@
 #!/bin/bash
 
+# Convert the AVI files into MP4
 VIDEO_FILES="/tmp/videos/*.avi"
-
 for f in $VIDEO_FILES
 do
   echo "Processing $f"
@@ -11,9 +11,9 @@ do
     vlc://quit
 done
 
+# Merge all the videos into one single file
 VIDEO_FILE_LIST=(/tmp/videos/*.mp4)
 echo "${VIDEO_FILE_LIST[@]}"
-
 vlc -I dummy \
    "${VIDEO_FILE_LIST[@]}" \
    --no-sout-all \
@@ -22,4 +22,5 @@ vlc -I dummy \
    "#gather:std{access=file,mux=mp4,dst=\"$MEDIA_PATH/video.mp4\"}" \
    vlc://quit
 
+# Speed the video up slightly
 ffmpeg -i /tmp/videos/video.mp4 "-filter:v" "setpts=0.75*PTS" "/tmp/videos/processed.mp4"
