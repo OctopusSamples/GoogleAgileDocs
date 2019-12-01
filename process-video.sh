@@ -19,7 +19,7 @@ vlc -I dummy \
    --no-sout-all \
    --sout-keep \
    --sout \
-   "#gather:std{access=file,mux=mp4,dst=\"$MEDIA_PATH/video.mp4\"}" \
+   "#gather:std{access=file,mux=mp4,dst=\"/tmp/videos/video.mp4\"}" \
    vlc://quit
 
 # Speed the video up slightly
