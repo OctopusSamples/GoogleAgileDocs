@@ -25,5 +25,5 @@ jobs:
         run: ./install.sh setup.pp
       - name: Run Script
         run: ./webdriver.sh
-      - name: Replace Wistia video
-        run: ./replace-wistia-video.sh
+      - name: Upload screenshots
+        run: ./upload-screenshots.sh

@@ -6,6 +6,7 @@ sudo apt-get update
 sudo apt-get install puppet-agent
 
 sudo /opt/puppetlabs/bin/puppet module install puppetlabs/apt
+sudo /opt/puppetlabs/bin/puppet module install puppet/archive
 
 for var in "$@"
 do

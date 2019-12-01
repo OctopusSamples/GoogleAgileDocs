@@ -23,5 +23,7 @@ jobs:
       - uses: actions/checkout@v1
       - name: Configure VM
         run: ./install.sh setup.pp
+      - name: Run script
+        run: ./webdriver.sh
       - name: Replace Wistia video
-        run: ./scripts/linux/replace-wistia-video.sh
+        run: ./replace-wistia-video.sh
