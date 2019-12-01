@@ -1,0 +1,27 @@
+name: Google Agile Docs Video
+on:
+  push:
+  schedule:
+    - cron:  '0 0 * * *'
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
+      WISTIA_USERNAME: ${{ secrets.WISTIA_USERNAME }}
+      WISTIA_PASSWORD: ${{ secrets.WISTIA_PASSWORD }}
+      MOVE_TO_MOUSE_CURSOR: true
+      DISABLE_HIGHLIGHTS: true
+      DISABLE_SCREENSHOTS: true
+      DISABLE_VIDEO: false
+      DISPLAY: ":99.0"
+      MOUSE_VERTICAL_OFFSET: 74
+      WISTIA_MEDIA_ID: r2oehkvdvf
+    steps:
+      - uses: actions/checkout@v1
+      - name: Configure VM
+        run: ./install.sh setup.pp
+      - name: Replace Wistia video
+        run: ./scripts/linux/replace-wistia-video.sh
