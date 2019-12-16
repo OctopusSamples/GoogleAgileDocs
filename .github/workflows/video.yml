@@ -32,6 +32,7 @@ jobs:
             -DdisableScreenshots=$DISABLE_SCREENSHOTS
             -DmouseMoveVerticalOffset=$MOUSE_VERTICAL_OFFSET
             -DdisableVideoRecording=$DISABLE_VIDEO
+            -DdumpOptions=true
             -DCucumberAlias-ExternalVideoDir=/github/workspace
             -DCucumberAlias-ExternalScreenshotDir=/github/workspace
         with:
@@ -46,6 +47,7 @@ jobs:
             -DdisableHighlights=true
             -DdisableScreenshots=true
             -DdisableVideoRecording=true
+            -DdumpOptions=true
             -DCucumberAlias-ExternalWistiaUsername=$WISTIA_USERNAME
             -DCucumberAlias-ExternalWistiaPassword=$WISTIA_PASSWORD
             -DCucumberAlias-ExternalMediaID=$WISTIA_MEDIA_ID
