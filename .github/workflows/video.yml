@@ -24,7 +24,7 @@ jobs:
       - name: Configure VM
         run: ./puppet/install.sh setup.pp
       - name: Run script
-        uses: mcasperson/webdriver
+        uses: docker://mcasperson/webdriver
         env:
           JAVA_OPTS: >
             -DmoveCursorToElement=$MOVE_TO_MOUSE_CURSOR
@@ -39,7 +39,7 @@ jobs:
       - name: Process video
         run: ./process-video.sh
       - name: Replace Wistia video
-        uses: mcasperson/webdriver
+        uses: docker://mcasperson/webdriver
         env:
           JAVA_OPTS: >
             -DmoveCursorToElement=false
