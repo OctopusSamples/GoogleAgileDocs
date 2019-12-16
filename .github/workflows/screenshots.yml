@@ -34,4 +34,4 @@ jobs:
         with:
           args: --plugin progress /github/workspace/google.feature
       - name: Upload screenshots
-        run: aws s3 sync "/home/runner/work/GoogleAgileDocs/GoogleAgileDocs/*.png" s3://i.octopus.com/guides/google --acl public-read
+        run: aws s3 sync "/home/runner/work/GoogleAgileDocs/GoogleAgileDocs" s3://i.octopus.com/guides/google --acl public-read --include "*.png"
