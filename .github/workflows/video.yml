@@ -36,10 +36,7 @@ jobs:
             -DCucumberAlias-ExternalVideoDir=/github/workspace
             -DCucumberAlias-ExternalScreenshotDir=/github/workspace
         with:
-          args:
-            - --plugin
-            - progress
-            - /github/workspace/google.feature
+          args: "--plugin progress /github/workspace/google.feature"
       - name: Process video
         run: ./process-video.sh
       - name: Replace Wistia video
