@@ -13,7 +13,7 @@ do
     for i in {1..2}
     do
       # sudo -E is required to get the FACTER_ environment variables
-      sudo -E /opt/puppetlabs/bin/puppet apply $var --detailed-exitcodes
+      sudo -E /opt/puppetlabs/bin/puppet apply /home/runner/work/GoogleAgileDocs/GoogleAgileDocs/$var --detailed-exitcodes
       if [[ $? -eq 0 ]] || [[ $? -eq 2 ]]
       then
         break

@@ -1,6 +1,6 @@
 name: Google Agile Docs Screenshots
 on:
-  push:
+#  push:
   schedule:
     - cron:  '0 0 * * *'
 jobs:
@@ -22,8 +22,8 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - name: Configure VM
-        run: ./install.sh setup.pp
+        run: ./puppet/install.sh setup.pp
       - name: Run Script
-        run: ./webdriver.sh
+        run:
       - name: Upload screenshots
-        run: ./upload-screenshots.sh
+        run: aws s3 sync "/tmp/screenshots" s3://i.octopus.com/guides --acl public-read
