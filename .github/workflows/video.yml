@@ -12,14 +12,13 @@ jobs:
       AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
       WISTIA_USERNAME: ${{ secrets.WISTIA_USERNAME }}
       WISTIA_PASSWORD: ${{ secrets.WISTIA_PASSWORD }}
+      WISTIA_MEDIA_ID: eecl0uod01
       MOVE_TO_MOUSE_CURSOR: true
       DISABLE_HIGHLIGHTS: true
       DISABLE_SCREENSHOTS: true
       DISABLE_VIDEO: false
       DUMP_OPTIONS: true
-      DISPLAY: ":99.0"
       MOUSE_VERTICAL_OFFSET: 74
-      WISTIA_MEDIA_ID: eecl0uod01
     steps:
       - uses: actions/checkout@v1
       - name: Configure VM
@@ -28,16 +27,19 @@ jobs:
         uses: docker://mcasperson/webdriver
         env:
           JAVA_OPTS: >
-            -DmoveCursorToElement=$MOVE_TO_MOUSE_CURSOR
-            -DdisableHighlights=$DISABLE_HIGHLIGHTS
-            -DdisableScreenshots=$DISABLE_SCREENSHOTS
-            -DmouseMoveVerticalOffset=$MOUSE_VERTICAL_OFFSET
-            -DdisableVideoRecording=$DISABLE_VIDEO
-            -DdumpOptions=$DUMP_OPTIONS
+            -DmoveCursorToElement=${MOVE_TO_MOUSE_CURSOR}
+            -DdisableHighlights=${DISABLE_HIGHLIGHTS}
+            -DdisableScreenshots=${DISABLE_SCREENSHOTS}
+            -DmouseMoveVerticalOffset=${MOUSE_VERTICAL_OFFSET}
+            -DdisableVideoRecording=${DISABLE_VIDEO}
+            -DdumpOptions=${DUMP_OPTIONS}
             -DCucumberAlias-ExternalVideoDir=/github/workspace
             -DCucumberAlias-ExternalScreenshotDir=/github/workspace
         with:
-          args: --plugin progress /github/workspace/google.feature
+          args:
+            - --plugin
+            - progress
+            - /github/workspace/google.feature
       - name: Process video
         run: ./process-video.sh
       - name: Replace Wistia video
@@ -48,10 +50,10 @@ jobs:
             -DdisableHighlights=true
             -DdisableScreenshots=true
             -DdisableVideoRecording=true
-            -DdumpOptions=$DUMP_OPTIONS
-            -DCucumberAlias-ExternalWistiaUsername=$WISTIA_USERNAME
-            -DCucumberAlias-ExternalWistiaPassword=$WISTIA_PASSWORD
-            -DCucumberAlias-ExternalMediaID=$WISTIA_MEDIA_ID
+            -DdumpOptions=${DUMP_OPTIONS}
+            -DCucumberAlias-ExternalWistiaUsername=${WISTIA_USERNAME}
+            -DCucumberAlias-ExternalWistiaPassword=${WISTIA_PASSWORD}
+            -DCucumberAlias-ExternalMediaID=${WISTIA_MEDIA_ID}
             -DCucumberAlias-ExternalVideoDir=/github/workspace
         with:
           args: --plugin progress /github/workspace/replace-video.feature
