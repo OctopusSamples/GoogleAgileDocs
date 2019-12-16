@@ -23,4 +23,4 @@ vlc -I dummy \
    vlc://quit
 
 # Speed the video up slightly
-ffmpeg -i /tmp/videos/video.mp4 "-filter:v" "setpts=0.75*PTS" "/home/runner/work/GoogleAgileDocs/GoogleAgileDocs/processed.mp4"
+ffmpeg -i /home/runner/work/GoogleAgileDocs/GoogleAgileDocs/video.mp4 "-filter:v" "setpts=0.75*PTS" "/home/runner/work/GoogleAgileDocs/GoogleAgileDocs/processed.mp4"
