@@ -14,7 +14,7 @@ do
 done
 
 # Merge all the videos into one single file
-VIDEO_FILE_LIST=("${MEDIA_PATH}/*.mp4")
+VIDEO_FILE_LIST=(${MEDIA_PATH}/*.mp4)
 echo "${VIDEO_FILE_LIST[@]}"
 vlc -I dummy \
    "${VIDEO_FILE_LIST[@]}" \
