@@ -7,6 +7,7 @@ Feature: Replace Video
     And I populate the "user_email" text box with "ExternalWistiaUsername"
     And I populate the "user_password" text box with "ExternalWistiaPassword"
     And I click the "//button[text()='Sign in']" button
+    And I sleep for "5" seconds
 
   Scenario: Replace video
     And I open the URL "https://octopushq.wistia.com/medias/#{ExternalMediaID}"
