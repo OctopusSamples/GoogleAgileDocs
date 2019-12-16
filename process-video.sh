@@ -1,7 +1,9 @@
 #!/bin/bash
 
+MEDIA_PATH=/home/runner/work/GoogleAgileDocs/GoogleAgileDocs
+
 # Convert the AVI files into MP4
-VIDEO_FILES="/home/runner/work/GoogleAgileDocs/GoogleAgileDocs/*.avi"
+VIDEO_FILES="${MEDIA_PATH}/*.avi"
 for f in $VIDEO_FILES
 do
   echo "Processing $f"
@@ -19,8 +21,8 @@ vlc -I dummy \
    --no-sout-all \
    --sout-keep \
    --sout \
-   "#gather:std{access=file,mux=mp4,dst=\"/home/runner/work/GoogleAgileDocs/GoogleAgileDocs/video.mp4\"}" \
+   "#gather:std{access=file,mux=mp4,dst=\"${MEDIA_PATH}/video.mp4\"}" \
    vlc://quit
 
 # Speed the video up slightly
-ffmpeg -i /home/runner/work/GoogleAgileDocs/GoogleAgileDocs/video.mp4 "-filter:v" "setpts=0.75*PTS" "/home/runner/work/GoogleAgileDocs/GoogleAgileDocs/processed.mp4"
+ffmpeg -i "${MEDIA_PATH}/video.mp4" "-filter:v" "setpts=0.75*PTS" "${MEDIA_PATH}/processed.mp4"
