@@ -2,7 +2,7 @@ Feature: Search with Google
 
   Scenario: Open Page
     And I open the shared browser "FirefoxNoImplicitWait"
-    And I fullscreen the window
+    And I maximize the window
     And I open the URL "https://google.com"
 
   Scenario: Perform Search
