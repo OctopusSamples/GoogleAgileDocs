@@ -31,6 +31,6 @@ jobs:
             -DCucumberAlias-ExternalVideoDir=/github/workspace
             -DCucumberAlias-ExternalScreenshotDir=/github/workspace
         with:
-          args: --plugin=progress /github/workspace/google.feature
+          args: -- --plugin progress /github/workspace/google.feature
       - name: Upload screenshots
         run: aws s3 sync "/home/runner/work/GoogleAgileDocs/GoogleAgileDocs" s3://i.octopus.com/guides/google --acl public-read --exclude "*" --include "*.png"
