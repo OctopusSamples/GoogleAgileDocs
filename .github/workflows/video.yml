@@ -53,4 +53,4 @@ jobs:
             -DCucumberAlias-ExternalMediaID=${WISTIA_MEDIA_ID}
             -DCucumberAlias-ExternalVideoDir=/github/workspace
         with:
-          args: -- --plugin progress /github/workspace/replace-video.feature
+          args: /github/workspace/replace-video.feature
