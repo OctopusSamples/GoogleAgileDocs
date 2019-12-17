@@ -22,7 +22,7 @@ jobs:
       - name: Run script
         uses: docker://mcasperson/webdriver
         env:
-          JAVA_OPTS: >
+          JAVA_OPTS: >-
             -DmoveCursorToElement=${MOVE_TO_MOUSE_CURSOR}
             -DdisableHighlights=${DISABLE_HIGHLIGHTS}
             -DdisableScreenshots=${DISABLE_SCREENSHOTS}
