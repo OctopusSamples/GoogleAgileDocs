@@ -2,7 +2,7 @@ Feature: Search with Google
 
   Scenario: Open Page
     And I open the shared browser "FirefoxNoImplicitWait"
-    And I maximize the window
+    And I fullscreen the window
     And I open the URL "https://google.com"
 
   Scenario: Perform Search
@@ -24,4 +24,5 @@ Feature: Search with Google
     Then I verify the current URL matches the regex "https://www.google.com/search.*"
 
   Scenario: Close browser
-    Then I close the browser
+    Then I stop recording the screen
+    And I close the browser
